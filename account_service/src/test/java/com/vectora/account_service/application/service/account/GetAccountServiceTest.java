@@ -31,7 +31,7 @@ class GetAccountServiceTest {
     private final Account MOCK_ACCOUNT = Account.builder()
             .id(ACCOUNT_ID)
             .name("John Doe")
-            .salary(5_000)
+            .balance(5_000)
             .build();
 
     @Test

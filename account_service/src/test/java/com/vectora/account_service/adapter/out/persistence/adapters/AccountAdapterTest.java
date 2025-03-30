@@ -29,12 +29,12 @@ class AccountAdapterTest {
     public static final AccountEntity ACCOUNT_ENTITY = AccountEntity.builder()
             .id(1)
             .name("John Doe")
-            .salary(5_000)
+            .balance(5_000)
             .build();
     private final Account MOCK_ACCOUNT = Account.builder()
             .id(1)
             .name("John Doe")
-            .salary(5_000)
+            .balance(5_000)
             .build();
     private final AccountFields MOCK_ACCOUNT_FIELDS = AccountFields.builder()
             .name("John Doe")
