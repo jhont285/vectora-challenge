@@ -74,14 +74,14 @@ Requisitos
 Commandos
 
 ```shh
-cd account-service
+cd account_service
 
 ./gradlew bootRun  # En macOS/Linux
 gradlew.bat bootRun  # En Windows
 
 # Abrir otra consola
 
-cd transaction-service
+cd transaction_service
 ./gradlew bootRun  # En macOS/Linux
 gradlew.bat bootRun  # En Windows
 ```
