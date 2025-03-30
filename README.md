@@ -1,6 +1,5 @@
 # vectora-challenge
 
-
 El proyecto esta hecho con arquitectura hexagonal
 
 ```
@@ -39,14 +38,53 @@ src/main/java/com/miempresa/miapp
 
 # Account Service
 
-Se agregarón las siguientes validaciones
-- saldo mayor o igual a cero
-- que el nombre no venga vacio
+Se agregarón las siguientes validaciones en el endpoint de creación
+- Saldo mayor o igual a cero
+- Que el nombre no venga vacio ni nulo
 
-Se agrego cache en el endpoint para obtener la cuenta
+Que plus tiene:
+
+- Cache en el endpoint de optener saldo.
+
+Que falto: 
+- JWT
 
 # Transaction Service
 
+Se agregarón las siguientes validaciones en el endpoint de creación de cuenta.
+- Numeros de cuenta iguales o mayor a cero
+- Monto mayor a cero
+- Numero de cuenta existan en el account service
+
+Que plus tiene:
+
+- Cache en el endpoint de optener saldo con su respectivo refresco si se crea una nueva cuenta
+- Circuit Breaker al consultar account service
+
+Que falto: 
+- JWT
 
 # Como correr el proyecto
+
+Requisitos
+
+* Docker
+* Java 17
+
+Commandos
+
+```shh
+cd account-service
+
+./gradlew bootRun  # En macOS/Linux
+gradlew.bat bootRun  # En Windows
+
+# Abrir otra consola
+
+cd transaction-service
+./gradlew bootRun  # En macOS/Linux
+gradlew.bat bootRun  # En Windows
+```
+
+Abrir la colleción de postman y explorar
 
