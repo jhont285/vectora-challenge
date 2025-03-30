@@ -41,8 +41,8 @@ class CreateTransactionTest {
     void shouldCreateTransactionSuccessfully() {
         // Arrange
         TransactionInput transactionInput = new TransactionInput(1, 2, 100);
-        when(accountPort.existsTransaction(1)).thenReturn(false);
-        when(accountPort.existsTransaction(2)).thenReturn(false);
+        when(accountPort.existsTransaction(1)).thenReturn(true);
+        when(accountPort.existsTransaction(2)).thenReturn(true);
         when(transactionPort.save(transactionInput, TransactionStatus.SUCCESS))
                 .thenReturn(Transaction.builder().fromAccount(1).toAccount(2).status(TransactionStatus.SUCCESS).build());
         // Act
@@ -59,7 +59,7 @@ class CreateTransactionTest {
     void shouldThrowExceptionWhenFromAccountDoesNotExist() {
         // Arrange
         TransactionInput transactionInput = new TransactionInput(1, 2, 100);
-        when(accountPort.existsTransaction(1)).thenReturn(true);
+        when(accountPort.existsTransaction(1)).thenReturn(false);
 
         // Act & Assert
         AccountNotExists exception = assertThrows(AccountNotExists.class,
@@ -73,8 +73,8 @@ class CreateTransactionTest {
     void shouldThrowExceptionWhenToAccountDoesNotExist() {
         // Arrange
         TransactionInput transactionInput = new TransactionInput(1, 2, 100);
-        when(accountPort.existsTransaction(1)).thenReturn(false);
-        when(accountPort.existsTransaction(2)).thenReturn(true);
+        when(accountPort.existsTransaction(1)).thenReturn(true);
+        when(accountPort.existsTransaction(2)).thenReturn(false);
 
         // Act & Assert
         AccountNotExists exception = assertThrows(AccountNotExists.class,
